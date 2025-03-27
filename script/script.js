@@ -14,3 +14,16 @@ document
     
     this.reset();
   });
+  document
+    .getElementById("darkModeToggle")
+    .addEventListener("click", function () {
+      document.body.classList.toggle("dark-mode");
+
+      alert("Dark mode!");
+    });
+
+    document
+      .getElementById("subscriptionForm")
+      .addEventListener("focusin", function () {
+        console.log("Form is focused!");
+      });
