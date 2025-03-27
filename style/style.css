@@ -81,11 +81,11 @@ button:hover {
 }
 .dark-mode {
     background-color: #333;
-    color: #fff;
+    color: wheat;
 }
 
 .dark-mode .form-overlay {
-    background: rgba(50, 50, 50, 0.9); /* Darker background for the form */
+    background: rgba(50, 50, 50, 0.9); 
 }
 .dark-mode button {
     background-color: #555;
