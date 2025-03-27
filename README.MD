@@ -8,7 +8,7 @@ renewal of subcription with 3 subcription types, monthly, quaterly and yearly su
 ## Languages
 HTML CSS & Javascript
 ## Contacts
-Gmail:kinyanjuipauline69@gmail.com
+Gmail:kinyanjuipauline69@gmail.com.
 # Licence
 MIT License
 
