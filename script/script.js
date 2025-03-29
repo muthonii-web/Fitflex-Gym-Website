@@ -86,3 +86,48 @@ function toggleDarkMode() {
 }
 
 fetchClasses();
+
+document
+  .getElementById("viewSubscriptionsButton")
+  .addEventListener("click", function () {
+    
+    document.getElementById("loadingIndicator").style.display = "block";
+
+
+    fetch("https://fitflex-gym-backend.onrender.com/api/subscription")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((subscriptions) => {
+        displaySubscriptions(subscriptions);
+        document.getElementById("loadingIndicator").style.display = "none";
+      })
+      .catch((error) => {
+        console.error("There was a problem with the fetch operation:", error);
+        document.getElementById("loadingIndicator").style.display = "none"; 
+        alert("Failed to load subscriptions. Please try again later.");
+      });
+  });
+
+function displaySubscriptions(subscriptions) {
+  const subscriptionsContainer = document.getElementById(
+    "subscriptionsContainer"
+  );
+  subscriptionsContainer.innerHTML = ""; 
+  subscriptionsContainer.style.display = "block";
+
+  subscriptions.forEach((subscription) => {
+    const subscriptionDiv = document.createElement("div");
+    subscriptionDiv.classList.add("subscription");
+    subscriptionDiv.innerHTML = `
+            <h3>${subscription.type}</h3>
+            <p>Name: ${subscription.name}</p>
+            <p>Email: ${subscription.email}</p>
+            <p>Status: ${subscription.status}</p>
+        `;
+    subscriptionsContainer.appendChild(subscriptionDiv);
+  });
+}
